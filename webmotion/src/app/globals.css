@@ -1,0 +1,300 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  background-color: #0f2408;
+}
+.container{
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+li,a{
+  list-style: none;
+  text-decoration: none;
+}
+
+/* !! Porfolio Card Style Section Start */
+.primaryBtn {
+  @apply w-max py-2 px-8 text-sm rounded-full uppercase font-semibold cursor-pointer transition-all ease-in-out duration-200;
+}
+.btn-container{
+  position: absolute;
+  top: 75%;
+  z-index: 100;
+}
+.portfolioCard{
+  position: relative;
+}
+.portfolioCard::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #33323296;
+  backdrop-filter: blur(.3rem);
+  -webkit-backdrop-filter: blur(.3rem);
+  z-index: 5;
+
+  transition: background-color 300ms ease-in-out, backdrop-filter 300ms ease-in-out, -webkit-backdrop-filter 300ms ease-in-out;
+}
+.portfolioCard:hover.portfolioCard::after{
+  background-color: transparent;
+  backdrop-filter: blur(0rem);
+  -webkit-backdrop-filter: blur(0rem);
+}
+/* !! Porfolio Card Style Section End */
+
+/* ?? Experience Card Style Section Start */
+  .experienceCard{
+    position: relative;
+
+  }
+  .experienceLogo{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 15%;
+    transform: translate(-50%,-50%);
+  }
+/* ?? Experience Card Style Section End */
+
+/* *** Header Card Style Section Start */
+  .line{
+
+  }
+  .lineIcon{
+    transform: rotate(90deg);
+  }
+/* *** Header Card Style Section End */
+
+/* ?? Skill Style Section Start */
+  .skillGrid{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+
+  }
+  .skillGrid > *:nth-child(1){
+    grid-row: 1;
+    grid-column: 1 / 6;
+  }
+  .skillGrid > *:nth-child(2){
+    grid-row: 1;
+    grid-column: 6 / 13;
+  }
+  .skillTitle{
+    position: relative;
+    padding-top: .5rem;
+  }
+  .skillTitle::before{
+    position: absolute;
+    content: "";
+    top: -5%;
+    left: 0;
+    width: 100px;
+    height: 5px;
+    border-radius: 4px;
+
+    animation: skill_line 10s ease-in-out infinite alternate-reverse forwards;
+  }
+  @keyframes skill_line {
+    0%{
+      width: 5px;
+      background-image: linear-gradient(45deg,#ff27db,#19f0ff);
+      background-size: 400%;
+      background-position: left;
+    }
+    
+    50%{
+      background-image: linear-gradient(45deg,#6f17fc,#c23eff);
+      background-size: 400%;
+      background-position: right;
+    }
+    
+    100%{
+      width: 200px;
+      background-image: linear-gradient(45deg,#49ff52,#ff8411);
+      background-size: 400%;
+      background-position: right;
+    }
+  }
+/* ?? Skill Style Section End */
+
+/* !! Portfolio Layout Style start */
+  .portfolioLayout{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 1rem;
+    row-gap: 2rem;
+    width: 100%;
+    
+  }
+  .portfolioLayout > *{
+    flex : 1 0 clamp(22rem, 10vw , 26rem);
+  }
+/* !! Portfolio Layout Style end */
+
+/* *** Education Section Style Start */
+  .educationCard{
+    position: relative; 
+
+    background-image: url("https://unsplash.it/500/500?image=321");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border: 1px solid #ffffffce;
+
+    transition: transform 300ms ease-in-out;
+    z-index: 1;
+  }
+  .educationCard::before{
+    position: absolute;
+
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #0a2c1b8a;
+    backdrop-filter: blur(.3rem);
+    -webkit-backdrop-filter: blur(.3rem);
+    z-index: 2;
+  }
+  .educationCard > *{
+    z-index: 3;
+  }
+  .educationCard:hover{
+    transform: translateY(-20px);
+  }
+/* *** Education Section Style End */
+
+/* ??? Blog Section Style Start */
+  .blogContent{
+    position: relative;
+  }
+  .blogContent > *:nth-child(3){
+    position: absolute;
+
+    top: 0%;
+    left: 50%;
+    transform:  translate(-50%,-50%);
+  }
+  .blogGrid{
+    display: grid;
+    grid-template-columns: repeat(12 , 1fr);
+    gap: 2rem;
+    /* place-items: center; */
+    width: 100%;
+  }
+  .blogGrid > *:nth-child(1){
+    grid-row: 1;
+    grid-column: 1 / 7;
+  }
+  .blogGrid > *:nth-child(2){
+    grid-row: 1;
+    grid-column: 7 / 13;
+  }
+  .blogGrid > *:nth-child(3){
+    grid-row: 2;
+    grid-column: 1 / 5;
+  }
+  .blogGrid > *:nth-child(4){
+    grid-row: 2;
+    grid-column: 5 / 9;
+  }
+  .blogGrid > *:nth-child(5){
+    grid-row: 2;
+    grid-column: 9 / 13;
+  }
+/* ??? Blog Section Style End */
+
+/* *** Bulb Section Style Start */
+  .bulb{
+    position: relative;
+
+    background-image: url("https://unsplash.it/1000/1000?image=342");
+    background-attachment:fixed;
+    background-position: left center;
+    background-size: cover;
+    z-index: 1;
+
+    /* padding-block: 5rem; */
+  }
+  .bulb::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #ca7b05e1;
+    backdrop-filter: blur(.3rem);
+    z-index: 2;
+  }
+  .bulb > div{
+    position: relative;
+  }
+  .bulb > div > *{
+    z-index: 3;
+  }
+  .bulbContainer1{
+    position: absolute;
+    left: 20%;
+    top: 10%;
+  }
+  .bulbContainer2{
+    visibility: hidden;
+  }
+  .star{
+    position: absolute;
+    top: 0;
+    left: 15%;
+    transform: translate(-50%,-50%);
+  }
+/* *** Bulb Section Style End */
+
+/* !! Form Section Style Start */
+  .contact{
+    position: relative;
+    background-image: url("https://unsplash.it/1000/1000?image=545");
+    z-index: 1;
+  }
+  .contact::before{
+    position: absolute;
+    content : "";
+    width: 100%;
+    height: 100%;
+    background: #0a05056e;
+    backdrop-filter: blur(.5rem);
+    -webkit-backdrop-filter: blur(.3rem);
+    z-index: 2;
+  }
+  .imgContainer,.content{
+    z-index: 3;
+  }
+  form > *:not(:last-child){
+    width: 100%;
+    background-color: #0066ffe7;
+    margin-bottom: .25rem;
+    padding: 0.5rem;
+    border-radius: .25rem;
+  }
+  form > * > input, textarea{
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    outline: none;
+  }
+/* !! Form Section Style End */
